@@ -2,8 +2,10 @@ import express from "express";
 const router = express.Router();
 
 // Importing all the routers
-import productRouter from "./productsRouter.js";
+import productRouter from "./productRouter.js";
+import userRouter from "./userRouter.js";
 
-router.use("/posts", productRouter);
+router.use("/product", productRouter);
+router.use("/user", userRouter);
 
 export default router;
