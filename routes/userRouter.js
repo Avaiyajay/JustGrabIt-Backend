@@ -1,7 +1,11 @@
 import express from "express";
 const userRouter = express.Router();
-import { creatUserController } from "../controllers/userController.js";
+import {
+  creatUserController,
+  verifyUserEmail,
+} from "../controllers/userController.js";
 
-userRouter.get("/create", creatUserController);
+userRouter.post("/create", creatUserController);
+userRouter.get("/verify", verifyUserEmail);
 
 export default userRouter;

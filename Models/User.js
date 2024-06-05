@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const userSchema = new Schema(
   {
     firstName: { type: String, required: true },
-    profilePicURL: { type: String },
+    profilePicURL: { type: String, default: "/images/profile.webp" },
     lastName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     isVerified: { type: Boolean, default: false },

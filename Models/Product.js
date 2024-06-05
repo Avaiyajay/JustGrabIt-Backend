@@ -5,7 +5,10 @@ const productSchema = new Schema(
   {
     name: { type: String, required: true }, // String is shorthand for {type: String}
     description: { type: String, required: true },
-    mainImageURL: { type: String, required: true },
+    mainImageURL: {
+      type: String,
+      required: true,
+    },
     price: { type: Number, required: true },
     isBestSeller: { type: Boolean, default: false },
     category: {

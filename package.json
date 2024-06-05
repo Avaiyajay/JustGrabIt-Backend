@@ -16,6 +16,8 @@
     "mongoose": "^8.4.1"
   },
   "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.13",
     "sharp": "^0.33.4"
   }
 }
