@@ -16,21 +16,7 @@ const productSchema = new Schema(
       enum: ["Men", "Women", "Unisex", "Kids"],
       message: "{VALUE} is not supported",
     },
-    size: [
-      {
-        type: String,
-        enum: [
-          "US 5",
-          "US 6",
-          "US 7",
-          "US 8",
-          "US 9",
-          "US 10",
-          "US 11",
-          "US 12",
-        ],
-      },
-    ],
+    size: [Number],
   },
   { timestamps: true }
 );

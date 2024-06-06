@@ -4,7 +4,6 @@ import connectDB from "./db/connection.js";
 import { fileURLToPath } from "url";
 import path from "path";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-global.__dirname = __dirname;
 
 const port = process.env.PORT || 8000;
 const app = express();
