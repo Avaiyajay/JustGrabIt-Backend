@@ -9,6 +9,7 @@ const storageDefinition = (destination) => {
       cb(null, destination);
     },
     filename: function (req, file, cb) {
+      console.log(file, "this is file");
       cb(
         null,
         `${req.body.name}-${Math.floor(
@@ -25,4 +26,6 @@ const storeFile = (destination) => {
   return multer({ storage: storage });
 };
 
-export { storeFile };
+const upload = multer();
+
+export { storeFile, upload };

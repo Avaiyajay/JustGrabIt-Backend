@@ -1,2 +1,4 @@
 node_modules
 .env
+google_cred.json
+/assets
