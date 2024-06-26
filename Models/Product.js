@@ -16,7 +16,7 @@ const productSchema = new Schema(
       enum: ["Men", "Women", "Unisex", "Kids"],
       message: "{VALUE} is not supported",
     },
-    size: [Number],
+    size: [String],
   },
   { timestamps: true }
 );

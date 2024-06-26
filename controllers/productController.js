@@ -6,11 +6,10 @@ import { v4 as uuidV4 } from "uuid";
 
 const createProductController = tryCatch(async (req, res) => {
   const { name, description, price, category, size } = req.body;
-  const fileNames = [];
-  await Promise.all(
+  let imageURLs = [];
+  imageURLs = await Promise.all(
     req.files.map(async (file) => {
       const fileName = `${uuidV4()}${path.extname(file.originalname)}`;
-      fileNames.push(fileName);
       return await uploadFile(file, fileName);
     })
   );
@@ -20,9 +19,11 @@ const createProductController = tryCatch(async (req, res) => {
     price,
     category,
     size,
-    mainImageURL: fileNames[0],
+    mainImageURL: imageURLs[0],
   });
-  return res.status(200).json({ msg: "Record Created Successfully" });
+  return res
+    .status(200)
+    .json({ status: "success", msg: "Record Created Successfully" });
 });
 
 const getProducts = tryCatch(async (req, res) => {

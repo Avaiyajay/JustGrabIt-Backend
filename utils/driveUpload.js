@@ -16,9 +16,12 @@ const drive = google.drive({
 });
 
 const uploadFile = async (fileObject, name) => {
+  let imgURL;
   const bufferStream = new Stream.PassThrough();
   bufferStream.end(fileObject.buffer);
-  const { data } = await drive.files.create({
+  const {
+    data: { id },
+  } = await drive.files.create({
     media: {
       mimeType: fileObject.mimeType,
       body: bufferStream,
@@ -29,7 +32,8 @@ const uploadFile = async (fileObject, name) => {
     },
     fields: "id,name",
   });
-  console.log(`Uploaded file ${data.name}${data.id}`);
+  imgURL = `https://drive.google.com/file/d/${id}/view?usp=drive_link`;
+  return imgURL;
 };
 
 export { uploadFile };
